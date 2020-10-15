@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import Table from './Table';
 
 const AxiosPlayground = (props) => {
+  const [rows, setRows] = useState([]);
   const handleClick = () => {
     console.log('Before');
     axios
       .get('https://jsonplaceholder.typicode.com/todos')
       .then((response) => {
-        console.log(response);
+        setRows(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -24,6 +26,10 @@ const AxiosPlayground = (props) => {
       <button className='btn btn-primary' onClick={handleClick}>
         Get Data
       </button>
+
+      <hr />
+
+      <Table rows={rows} />
     </React.Fragment>
   );
 };
