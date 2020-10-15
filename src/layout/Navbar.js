@@ -42,6 +42,11 @@ const Navbar = (props) => {
                 Gibberish
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link to='/playground' className='nav-link'>
+                Axios Playground
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

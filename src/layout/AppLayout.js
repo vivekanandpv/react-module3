@@ -9,7 +9,7 @@ const AppLayout = (props) => {
   return (
     <React.Fragment>
       <Navbar />
-      <Banner />
+      {/* <Banner /> */}
       <MainContent>{props.children}</MainContent>
       <Footer />
     </React.Fragment>
