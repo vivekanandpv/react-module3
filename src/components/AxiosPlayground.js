@@ -17,6 +17,34 @@ const AxiosPlayground = (props) => {
     console.log('After');
   };
 
+  const handleSubmit = () => {
+    //collate information, validation
+    const formData = {
+      name: 'Vivek',
+      city: 'Bengaluru',
+    };
+
+    axios
+      .post('https://jsonplaceholder.typicode.com/todos/145', formData)
+      .then((response) => {
+        console.log('Serer says', response);
+      })
+      .catch((error) => {
+        console.error('Post Error', error);
+      });
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then((response) => {
+        console.log('Serer says', response);
+      })
+      .catch((error) => {
+        console.error('Post Error', error);
+      });
+  };
+
   return (
     <React.Fragment>
       <h3>AxiosPlayground Component</h3>
@@ -25,6 +53,14 @@ const AxiosPlayground = (props) => {
 
       <button className='btn btn-primary' onClick={handleClick}>
         Get Data
+      </button>
+
+      <button className='btn btn-primary ml-3' onClick={handleSubmit}>
+        Post Data
+      </button>
+
+      <button className='btn btn-primary ml-3' onClick={() => handleDelete(12)}>
+        Delete Data
       </button>
 
       <hr />
