@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Table from './Table';
+import { httpClient } from '../utils/axios-instance';
 
 const AxiosPlayground = (props) => {
   const [rows, setRows] = useState([]);
   const handleClick = () => {
     console.log('Before');
-    axios
-      .get('https://jsonplaceholder.typicode.com/todos')
+    httpClient
+      .get('todos')
       .then((response) => {
         setRows(response.data);
       })
@@ -24,8 +25,8 @@ const AxiosPlayground = (props) => {
       city: 'Bengaluru',
     };
 
-    axios
-      .post('https://jsonplaceholder.typicode.com/todos/145', formData)
+    httpClient
+      .post('todos', formData)
       .then((response) => {
         console.log('Serer says', response);
       })
@@ -35,8 +36,8 @@ const AxiosPlayground = (props) => {
   };
 
   const handleDelete = (id) => {
-    axios
-      .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    httpClient
+      .delete(`todos/${id}`)
       .then((response) => {
         console.log('Serer says', response);
       })
