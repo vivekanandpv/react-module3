@@ -1,7 +1,14 @@
 import React from 'react';
+import AppLayout from './layout/AppLayout';
 
 function App() {
-  return <h3>React Module 3</h3>;
+  return (
+    <React.Fragment>
+      <AppLayout>
+        <h3>React Module 3</h3>
+      </AppLayout>
+    </React.Fragment>
+  );
 }
 
 export default App;
