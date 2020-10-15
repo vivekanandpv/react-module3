@@ -1,11 +1,12 @@
 import React from 'react';
 import AppLayout from './layout/AppLayout';
+import PrimaryRoutes from './routes/PrimaryRoutes';
 
 function App() {
   return (
     <React.Fragment>
       <AppLayout>
-        <h3>React Module 3</h3>
+        <PrimaryRoutes />
       </AppLayout>
     </React.Fragment>
   );
